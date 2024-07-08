@@ -1,68 +1,178 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.navbar-heading {
+  background: #1a73e826;
 }
 
-a {
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+.contact-btn {
+  width: Hug (139px) px;
+  height: Hug (28px) px;
+  padding: 0px 8px 0px 8px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: Inter;
+  font-size: 17.02px;
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  line-height: 28px;
+  text-align: center;
+  color: #1a73e8;
 }
 
-body {
-  margin: 0;
+.course-btn-icon {
+  transition: all 0.15s ease-in-out;
+}
+.course-btn:hover .course-btn-icon {
+  rotate: 180deg;
+}
+
+.navbar li:has(> a.active) {
+  border-bottom: 1px solid #1a73e8;
+}
+
+.navbar li:hover {
+  border-bottom: 1px solid #1a73e8;
+  background-color: rgb(148 163 184 / 0.2);
+}
+
+.refer-navbar-container {
+  width: 100vw;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.refer-navbar-container .refer-navbar {
+  max-width: 763px;
+  width: 100%;
+  border-radius: 38px;
+  display: flex;
+  align-items: center;
+  height: 63px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.refer-navbar .nav-ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+/* Style for the navigation links */
+.nav-ul a {
+  text-decoration: none;
+  color: #333; /* Adjust link color */
+  position: relative;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Active state indicator (blue dot) */
+.nav-ul a.active::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #3490dc; /* Blue color */
+  border-radius: 50%;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-item {
+  @apply mr-4;
+}
+
+.nav-link {
+  @apply inline-block py-2 px-4;
+  border-radius: 50px;
+}
+
+.nav-link:hover {
+  background-color: #1a73e8;
+  color: #ffffff;
+}
+.tab-content {
+  @apply p-4;
+}
+
+.tab-pane {
+  @apply hidden;
+}
+
+.tab-pane.active {
+  @apply block;
+}
+
+.refer-header {
+  background: #eef5ff;
+  box-shadow: 0px 4px 25px 1px #00072b36;
+
+  border-radius: 29px;
+}
+
+.people-phone{
+
+  position: relative;
+  top: 25px;
+  z-index: 1;
+}
+.image-container, .content {
+  position: relative; /* Make the container a positioning context */
+  overflow: hidden;
+}
+
+.money {
+  position: absolute; /* Position the money images absolutely */
+  width: 100px;
+}
+
+.money1 {
+  top: -30px; 
+  left: 0px;
+  
+}
+
+.money2 {
+  top: 0px; /* Position money2 30px from the top */
+  right: 20px; /* Position money2 20px from the right */
+}
+
+.money3 {
+  bottom: 50px;
+  left: 63px; 
+  z-index: 2;
+}
+
+.money4 {
+  top : 33px; 
+  right: 365px;
+  z-index: 0; 
+}
+.money5 {
+  bottom: 220px; /* Position money4 20px from the bottom */
+  right: 10px;
+   /* Position money4 30px from the right */
+}
+.content-box{
+
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  justify-content: center;
+  align-items:start;
+  margin-left: 3rem;
+  flex-direction: column;
+
+}
+.content-box h1{
+
+  font-family: Roboto;
+font-size: 5rem;
+font-weight: 600;
+
+text-align: left;
+
 }
