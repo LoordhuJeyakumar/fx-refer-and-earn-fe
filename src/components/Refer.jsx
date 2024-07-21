@@ -6,6 +6,7 @@ import money3 from "../assets/images/money3.png";
 import money4 from "../assets/images/money4.png";
 import money5 from "../assets/images/money5.png";
 import PopupModalForm from "./PopupModalForm";
+import ReferButton from "./ReferButton";
 
 function Refer({ handleOpen }) {
   return (
@@ -27,14 +28,7 @@ function Refer({ handleOpen }) {
                 </p>
               </div>
             </div>
-            <div className="ms-12 p-5 ps-0">
-              <button
-                className="bg-[#1A73E8] text-white px-4 py-2 rounded-lg "
-                onClick={handleOpen}
-              >
-                Refer Now
-              </button>
-            </div>
+           <ReferButton handleOpen={handleOpen}/>
           </div>
         </div>
         <div className="image-container">

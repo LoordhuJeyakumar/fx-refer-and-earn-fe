@@ -5,6 +5,8 @@ import Tabs from "../src/components/Tabs";
 import PopoverComponent from "../src/components/PopoverComponent";
 import Refer from "../src/components/Refer";
 import PopupModalForm from "../src/components/PopupModalForm";
+import ReferProcess from "../src/components/ReferProcess";
+import ReferelBenifits from "../src/components/ReferelBenifits";
 
 function TabContent({ content }) {
   return <div className="tab-content">{content}</div>;
@@ -39,6 +41,8 @@ function ReferAndEarnLandingPage() {
       </div>
       <TabContent content={tabsData[activeTab].content} />
       <PopupModalForm open={open} setOpen={setOpen} />
+      <ReferProcess handleOpen={handleOpen} />
+      <ReferelBenifits />
     </div>
   );
 }

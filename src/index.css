@@ -114,13 +114,13 @@
   border-radius: 29px;
 }
 
-.people-phone{
-
+.people-phone {
   position: relative;
   top: 25px;
   z-index: 1;
 }
-.image-container, .content {
+.image-container,
+.content {
   position: relative; /* Make the container a positioning context */
   overflow: hidden;
 }
@@ -131,9 +131,8 @@
 }
 
 .money1 {
-  top: -30px; 
+  top: -30px;
   left: 0px;
-  
 }
 
 .money2 {
@@ -143,36 +142,163 @@
 
 .money3 {
   bottom: 50px;
-  left: 63px; 
+  left: 63px;
   z-index: 2;
 }
 
 .money4 {
-  top : 33px; 
+  top: 33px;
   right: 365px;
-  z-index: 0; 
+  z-index: 0;
 }
 .money5 {
   bottom: 220px; /* Position money4 20px from the bottom */
   right: 10px;
-   /* Position money4 30px from the right */
+  /* Position money4 30px from the right */
 }
-.content-box{
-
+.content-box {
   display: flex;
   font-family: "Roboto", sans-serif;
   justify-content: center;
-  align-items:start;
+  align-items: start;
   margin-left: 3rem;
   flex-direction: column;
-
 }
-.content-box h1{
-
+.content-box h1 {
   font-family: Roboto;
-font-size: 5rem;
-font-weight: 600;
+  font-size: 5rem;
+  font-weight: 600;
 
-text-align: left;
+  text-align: left;
+}
+.refer-process {
+  max-height: 785px;
+  height: 100%;
+  background-color: #eef5ff;
+}
+
+.refer-process .process-heading,
+.referel-benifits .heading {
+  font-weight: 600;
+  font-size: 27.66px;
+  text-align: center;
+  color: #1a202c;
+  padding: 2rem;
+}
+.refer-process .process-heading span,
+.referel-benifits .heading span {
+  color: #1a73e8;
+}
+.process-card-box {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.progressBackground {
+  z-index: 0;
+  position: absolute;
+}
+
+.process-card {
+  position: relative;
+  z-index: 1;
+}
+
+.process-card .content {
+  text-wrap: wrap;
+  max-width: 193px;
+}
+
+.program-nav {
+  box-shadow: 0px 1px 24.4px 1px #00000029;
+  border-radius: 8px !important;
+  padding: 0 !important;
+}
+.MuiListItem-root {
+  border-radius: 8px !important;
+  padding-right: 0 !important;
+  width: 100%;
+}
+.MuiListItem-root .MuiListItemIcon-root {
+  padding: 8px !important;
+
+  display: flex;
+  justify-content: end;
+  margin: 0 !important;
+}
+.tableHeading {
+  font-weight: 700 !important;
+}
+.tableHeading th {
+  font-weight: 700 !important;
+  color: #1350a0 !important;
+  font-size: 18px;
+}
+
+.table-box {
+  max-width: 921px !important;
+  background-color: #ebf3ff59 !important;
+  box-shadow: 0px 4px 29.3px 0px #3c3c3c26;
+  border-radius: 14px;
+  max-height: 561px;
+}
+.tableContent {
+  display: flex;
+
+  gap: 10px;
+}
+
+/* on of switch */
+input[type="checkbox"].enrolled-switch{
+  opacity: 0;
+  position: absolute;
 
 }
+input[type="checkbox"].enrolled-switch + .enrolled-switch-lable{
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+input[type="checkbox"].enrolled-switch + .enrolled-switch-lable::before{
+  content: "";
+  width: 2em;
+  height: 1em;
+  
+  background-color: #ffffff;
+  border-radius: 1em;
+
+  transition: background-color 200ms ease-in-out;
+  border: 1.5px solid #3C4852;
+}
+input[type="checkbox"].enrolled-switch + .enrolled-switch-lable::after{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  content: "";
+  font-size: .4em;
+  height: .9em;
+  left: 0.4em;
+  
+  width: 1.8em;
+  height: 1.8em;
+  background-color:#CCC;
+  color: #1a202c;
+  border-radius: 1em;
+  transition: background-color 200ms ease-in-out, transform 200ms ease-in-out;
+
+  }
+input[type="checkbox"].enrolled-switch:checked + .enrolled-switch-lable{
+color: red;
+}
+
+input[type="checkbox"].enrolled-switch:checked + label::after {
+ left: 1em;
+  transform: translateX(100%);
+  background-color: #1A73E8;
+}
+
+
