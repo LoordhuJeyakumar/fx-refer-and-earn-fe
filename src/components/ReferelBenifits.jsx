@@ -17,6 +17,7 @@ import React, { useState } from "react";
 import graIcon from "../assets/icons/gra-icon.svg";
 
 function ReferelBenifits() {
+  const [beniftSwitchOn, setBeniftSwitchOn] = useState(true);
   const menuItems = [
     "Product Management",
     "Strategy & Leadership",
@@ -75,7 +76,13 @@ function ReferelBenifits() {
         <div className="enrolled-switch-box">
           <label htmlFor="enrolled" className="flex">
             Enrolled &nbsp;
-            <input type="checkbox" id="enrolled" className="enrolled-switch" />
+            <input
+              type="checkbox"
+              id="enrolled"
+              className="enrolled-switch"
+              checked={beniftSwitchOn}
+              onChange={() => setBeniftSwitchOn(!beniftSwitchOn)}
+            />
             <label htmlFor="enrolled" className="enrolled-switch-lable"></label>
           </label>
         </div>
