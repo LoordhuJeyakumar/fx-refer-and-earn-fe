@@ -1,11 +1,21 @@
-import { ChevronRight, School } from "@mui/icons-material";
 import {
+  ArrowDownward,
+  ChevronRight,
+  ExpandMore,
+  School,
+} from "@mui/icons-material";
+import LoadingButton from "@mui/lab/LoadingButton";
+import {
+  Alert,
+  Button,
+  CircularProgress,
   Divider,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
   Paper,
+  Snackbar,
   Table,
   TableBody,
   TableCell,
@@ -15,58 +25,79 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import graIcon from "../assets/icons/gra-icon.svg";
-
-function ReferelBenifits() {
+import ReferButton from "./ReferButton";
+const menuItems = [
+  "Product Management",
+  "Strategy & Leadership",
+  "Business Management",
+  "Fintech",
+  "Senior Management",
+  "Data Science",
+  "Digital Transformation",
+  "Business Analytics",
+];
+const programs = [
+  {
+    name: "Professional Certificate Program in Product Management",
+    referrerBonus: "₹ 7,000",
+    refereeBonus: "₹ 9,000",
+  },
+  {
+    name: "PG Certificate Program in Strategic Product Management",
+    referrerBonus: "₹ 9,000",
+    refereeBonus: "₹ 11,000",
+  },
+  {
+    name: "Executive Program in Data Driven Product Management",
+    referrerBonus: "₹ 10,000",
+    refereeBonus: "₹ 10,000",
+  },
+  {
+    name: "Executive Program in Product Management and Digital Transformation",
+    referrerBonus: "₹ 10,000",
+    refereeBonus: "₹ 10,000",
+  },
+  {
+    name: "Executive Program in Product Management",
+    referrerBonus: "₹ 10,000",
+    refereeBonus: "₹ 10,000",
+  },
+  {
+    name: "Advanced Certification in Product Management",
+    referrerBonus: "₹ 10,000",
+    refereeBonus: "₹ 10,000",
+  },
+  {
+    name: "Executive Program in Product Management and Project Management",
+    referrerBonus: "₹ 10,000",
+    refereeBonus: "₹ 10,000",
+  },
+];
+function ReferelBenifits({ handleOpen }) {
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [beniftSwitchOn, setBeniftSwitchOn] = useState(true);
-  const menuItems = [
-    "Product Management",
-    "Strategy & Leadership",
-    "Business Management",
-    "Fintech",
-    "Senior Management",
-    "Data Science",
-    "Digital Transformation",
-    "Business Analytics",
-  ];
-  const programs = [
-    {
-      name: "Professional Certificate Program in Product Management",
-      referrerBonus: "₹ 7,000",
-      refereeBonus: "₹ 9,000",
-    },
-    {
-      name: "PG Certificate Program in Strategic Product Management",
-      referrerBonus: "₹ 9,000",
-      refereeBonus: "₹ 11,000",
-    },
-    {
-      name: "Executive Program in Data Driven Product Management",
-      referrerBonus: "₹ 10,000",
-      refereeBonus: "₹ 10,000",
-    },
-    {
-      name: "Executive Program in Product Management and Digital Transformation",
-      referrerBonus: "₹ 10,000",
-      refereeBonus: "₹ 10,000",
-    },
-    {
-      name: "Executive Program in Product Management",
-      referrerBonus: "₹ 10,000",
-      refereeBonus: "₹ 10,000",
-    },
-    {
-      name: "Advanced Certification in Product Management",
-      referrerBonus: "₹ 10,000",
-      refereeBonus: "₹ 10,000",
-    },
-    {
-      name: "Executive Program in Product Management and Project Management",
-      referrerBonus: "₹ 10,000",
-      refereeBonus: "₹ 10,000",
-    },
-  ];
+  const [loading, setLoading] = useState(false);
   const [activeItem, setActiveItem] = useState("ALL PROGRAMS");
-  console.log(activeItem);
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setSnackbarOpen(false);
+  };
+  const handleShowMore = async () => {
+    // Simulate an asynchronous operation (e.g., API call)
+    setLoading(true);
+    await fetchAsyncFunction();
+    setSnackbarOpen(true);
+    // Replace with your actual async logic
+    setLoading(false);
+  };
+
+  async function fetchAsyncFunction() {
+    // Simulate an API call delay
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+  }
+
   return (
     <section className="referel-benifits mt-10 ">
       <h1 className="text-2xl font-bold text-center heading">
@@ -134,6 +165,7 @@ function ReferelBenifits() {
             ))}
           </List>
         </div>
+        {/* Table */}
         <div className="flex-1 ps-4">
           <TableContainer
             className=" table-box"
@@ -203,6 +235,40 @@ function ReferelBenifits() {
             </Table>
           </TableContainer>
         </div>
+      </div>
+      <div className="flex justify-center  py-4">
+        <div className="w-3/4 flex justify-end">
+          <LoadingButton
+            className="mx-auto block mt-8"
+            onClick={handleShowMore}
+            loading={loading}
+            loadingIndicator={<CircularProgress color="inherit" size={16} />}
+            variant="outlined"
+            sx={{
+              fontSize: "1em",
+              fontWeight: "600",
+              color: "#3C485285",
+              borderColor: "#3C485285",
+              textTransform: "none",
+            }}
+            endIcon={<ExpandMore />}
+          >
+            {loading ? "Loading..." : "Show More"}
+          </LoadingButton>
+          <Snackbar
+            open={snackbarOpen}
+            autoHideDuration={6000}
+            onClose={handleSnackbarClose}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+          >
+            <Alert onClose={handleSnackbarClose} severity="info">
+              There is no data
+            </Alert>
+          </Snackbar>
+        </div>
+      </div>
+      <div className="mx-auto flex justify-center">
+        <ReferButton handleOpen={handleOpen} />
       </div>
     </section>
   );

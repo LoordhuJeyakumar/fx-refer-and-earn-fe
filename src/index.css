@@ -178,7 +178,8 @@
 }
 
 .refer-process .process-heading,
-.referel-benifits .heading {
+.referel-benifits .heading,
+.faq .heading {
   font-weight: 600;
   font-size: 27.66px;
   text-align: center;
@@ -186,7 +187,8 @@
   padding: 2rem;
 }
 .refer-process .process-heading span,
-.referel-benifits .heading span {
+.referel-benifits .heading span,
+.faq .heading span {
   color: #1a73e8;
 }
 .process-card-box {
@@ -251,54 +253,104 @@
 }
 
 /* on of switch */
-input[type="checkbox"].enrolled-switch{
+input[type="checkbox"].enrolled-switch {
   opacity: 0;
   position: absolute;
-
 }
-input[type="checkbox"].enrolled-switch + .enrolled-switch-lable{
+input[type="checkbox"].enrolled-switch + .enrolled-switch-lable {
   position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
-input[type="checkbox"].enrolled-switch + .enrolled-switch-lable::before{
+input[type="checkbox"].enrolled-switch + .enrolled-switch-lable::before {
   content: "";
   width: 2em;
   height: 1em;
-  
+
   background-color: #ffffff;
   border-radius: 1em;
 
   transition: background-color 200ms ease-in-out;
-  border: 1.5px solid #3C4852;
+  border: 1.5px solid #3c4852;
 }
-input[type="checkbox"].enrolled-switch + .enrolled-switch-lable::after{
+input[type="checkbox"].enrolled-switch + .enrolled-switch-lable::after {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   content: "";
-  font-size: .4em;
-  height: .9em;
+  font-size: 0.4em;
+  height: 0.9em;
   left: 0.4em;
-  
+
   width: 1.8em;
   height: 1.8em;
-  background-color:#CCC;
+  background-color: #ccc;
   color: #1a202c;
   border-radius: 1em;
   transition: background-color 200ms ease-in-out, transform 200ms ease-in-out;
-
-  }
-input[type="checkbox"].enrolled-switch:checked + .enrolled-switch-lable{
-color: red;
+}
+input[type="checkbox"].enrolled-switch:checked + .enrolled-switch-lable {
+  color: red;
 }
 
 input[type="checkbox"].enrolled-switch:checked + label::after {
- left: 1em;
+  left: 1em;
   transform: translateX(100%);
-  background-color: #1A73E8;
+  background-color: #1a73e8;
 }
 
+.MuiTabs-flexContainer{
+  justify-content: center !important;
+  align-items: center !important;
+}
 
+.faq .faq-btn {
+  min-height: 69px;
+  height: 100%;
+  background-color: #ffffff;
+  color: #737373;
+  border: 2px solid #737373;
+  border-radius: 7px;
+  font-weight: 600;
+  padding: 10px 30px;
+  min-width: 259px;
+  font-size: 16px;
+  margin-top: 12px;
+  max-width: 259px;
+}
+
+.faq .faq-btn:hover {
+  color: #ffffff;
+}
+
+.faq .Mui-selected {
+  border: 2px solid #e2e8f0;
+
+  color: #ffffff;
+  box-shadow: 0px 2px 26.6px 0px rgba(0, 0, 0, 0.18);
+}
+.faq .MuiTabs-indicator {
+  display: none;
+}
+
+.MuiAccordion-root,
+.MuiAccordionSummary-root,
+.MuiAccordionSummary-content,
+.MuiAccordion-root::before {
+ 
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.MuiAccordionSummary-content p {
+  font-weight: 600 !important;
+}
+.MuiAccordionSummary-root,
+.MuiAccordionSummary-content.Mui-expanded {
+  color: #1a73e8;
+}
+.MuiAccordionDetails-root {
+  padding-left: 30px !important;
+}
