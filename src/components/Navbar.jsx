@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import logo from "../assets/images/logo.png.png";
-import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import LogoComponent from "./LogoComponent";
+import PropTypes from "prop-types";
 
 const Drawer = ({ isOpen, onClose }) => {
   return (
@@ -9,7 +11,7 @@ const Drawer = ({ isOpen, onClose }) => {
         <div className="absolute left-0 top-0 w-[300px] h-screen bg-white shadow-lg z-50 ">
           <div className="flex flex-col items-start gap-4 p-4">
             <div className="w-full flex justify-center items-center mt-2">
-              <img src={logo} alt="logo" className="max-w-[130px] w-full" />
+              <LogoComponent />
             </div>
             <nav className="flex flex-col mt-4 w-full justify-center">
               <NavLink
@@ -44,8 +46,15 @@ const Drawer = ({ isOpen, onClose }) => {
   );
 };
 
+Drawer.propTypes = {
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
+};
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -55,7 +64,10 @@ function Navbar() {
           <h1 className="font-medium text-neutral-800 text-xs md:text-sm flex items-center gap-3">
             Navigate your ideal career path with tailored expert advice{" "}
           </h1>
-          <button className="md:mx-2 md:text-sm font-medium text-nowrap contact-btn capitalize ">
+          <button
+            className="md:mx-2 md:text-sm font-medium text-nowrap contact-btn capitalize "
+            onClick={() => navigate("/contact-us")}
+          >
             contact expert
           </button>
         </div>
@@ -66,7 +78,7 @@ function Navbar() {
             <div className="flex items-center gap-8 ">
               <Link to="/" style={{ textDecoration: "none" }}>
                 <div className="max-w-[125px] w-full">
-                  <img className="w-full" alt="logo" src={logo} />
+                  <LogoComponent />
                 </div>
               </Link>
 
@@ -104,10 +116,18 @@ function Navbar() {
                 {/* call to action buttons  login*/}
               </nav>
               <div className="space-x-4  md:flex items-center justify-center gap-[0.5rem]">
-                <button className="login-btn   px-[18px] py-[8px] bg-slate-400/20 rounded-md font-medium text-sm text-nowrap">
+                <button
+                  className="login-btn   px-[18px] py-[8px] bg-slate-400/20 rounded-md font-medium text-sm text-nowrap"
+                  onClick={() => {
+                    navigate("/signin");
+                  }}
+                >
                   Login
                 </button>
-                <button className="signup-btn hidden lg:flex px-[18px] py-[8px] bg-[#1A73E8] hover:bg-darkBlue text-white rounded-md font-medium text-sm text-nowrap">
+                <button
+                  className="signup-btn hidden lg:flex px-[18px] py-[8px] bg-[#1A73E8] hover:bg-darkBlue text-white rounded-md font-medium text-sm text-nowrap"
+                  onClick={() => navigate("/signup")}
+                >
                   Try for free
                 </button>
               </div>
