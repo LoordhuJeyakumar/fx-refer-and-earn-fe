@@ -1,9 +1,9 @@
-import React from "react";
 import addfriend from "../assets/icons/add_friend.svg";
 import note from "../assets/icons/Layer_10.svg";
 import wallet from "../assets/icons/Group 22036.svg";
 import progressBackground from "../assets/icons/progress-background.svg";
 import ReferButton from "./ReferButton";
+import { PropTypes } from "prop-types";
 
 const steps = [
   {
@@ -12,7 +12,7 @@ const steps = [
   },
   {
     icon: <img src={note} alt="note" />,
-    description: "Earn rewards once your referral joins an Accredian program.",
+    description: "Earn rewards once your referral joins an FX program.",
   },
   {
     icon: <img src={wallet} alt="wallet" />,
@@ -25,7 +25,7 @@ function ReferProcess({ handleOpen }) {
   return (
     <section className=" refer-process mt-16 w-full flex justify-between flex-col gap-36">
       <h1 className="process-heading">
-        How Do I <span >Refer?</span>
+        How Do I <span>Refer?</span>
       </h1>
       <div className="flex flex-col items-center   bg-blue-50 h-full d-flex justify-between">
         <div className="w-full max-w-7xl process-card-box max-h-fit    h-full">
@@ -57,5 +57,9 @@ function ReferProcess({ handleOpen }) {
     </section>
   );
 }
+
+ReferProcess.propTypes = {
+  handleOpen: PropTypes.func.isRequired,
+};
 
 export default ReferProcess;
