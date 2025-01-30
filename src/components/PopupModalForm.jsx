@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { PropTypes } from 'prop-types';
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   Alert,
@@ -17,8 +18,8 @@ import {
   CloseRounded,
   SendRounded,
 } from "@mui/icons-material";
-import logo from "../assets/images/logo.png.png";
 import axios from "axios";
+import LogoComponent from "./LogoComponent";
 
 const style = {
   position: "absolute",
@@ -30,7 +31,7 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-const API_BASE_URL = "https://accredian-backend-task-1agp.onrender.com";
+const API_BASE_URL = "http://localhost:3000";
 function PopupModalForm({ open, setOpen }) {
   const handleClose = () => setOpen(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -49,7 +50,7 @@ function PopupModalForm({ open, setOpen }) {
     // Handle form submission logic
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/referral/createReferral`,
+        `${API_BASE_URL}/referral/create`,
         data
       );
       console.log(response);
@@ -116,7 +117,7 @@ function PopupModalForm({ open, setOpen }) {
 
             <Paper className="m-2">
               <form className="w-full p-8" onSubmit={handleSubmit(onSubmit)}>
-                <img src={logo} alt="logo" className="w-24 items-center" />
+                <LogoComponent />
                 <TextField
                   id="referrerName"
                   label="Your Name"
@@ -190,15 +191,6 @@ function PopupModalForm({ open, setOpen }) {
                   </Button>
                   <Button
                     variant="contained"
-                    endIcon={<CloseRounded />}
-                    onClick={handleClose}
-                  >
-                    Close
-                  </Button>
-                </div>
-                <div className="flex justify-center ">
-                  <Button
-                    variant="contained"
                     color="primary"
                     size="large"
                     endIcon={<SendRounded />}
@@ -235,5 +227,10 @@ function PopupModalForm({ open, setOpen }) {
     </div>
   );
 }
+
+PopupModalForm.propTypes = {
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+};
 
 export default PopupModalForm;
